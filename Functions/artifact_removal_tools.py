@@ -54,6 +54,8 @@ def remove_eyeblinks_cpu(eeg_raw, srate, analysis='offline', window_length = 125
             EEG signal without the artifacts
         eeg_artifact: array like
             Artifacts found in EEG signal
+        saturation_found: boolean
+            Boolean to determine wether the signal hit one of the rails (clipping)
 
     Notes
     -----
@@ -189,7 +191,7 @@ def single_remove_eyeblinks(eeg_raw, idx_mat, n_clusters = 4, fd_threshold = 1.4
         artifact_found: boolean
             Boolean to determine wether there were artifacts detected
         saturation_found: boolean
-            Boolean to determin wether the signal hit one of the rails (clipping)
+            Boolean to determine wether the signal hit one of the rails (clipping)
     """
 
     #%% Create EEG embedded matrix from single row of EEG
