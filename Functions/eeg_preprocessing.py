@@ -16,7 +16,7 @@ def filter(type:str, x:np.ndarray, fc:list[int], srate:int, order:int = 4):
         ----------
             Type: str
                 Filter type, select form the following
-                    'lowp': Low-pass filter
+                    'low': Low-pass filter
                     'high': High-pass filter
                     'band': Band-pass filter
                     'notch': Notch filter
