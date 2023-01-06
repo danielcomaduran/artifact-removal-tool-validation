@@ -127,7 +127,7 @@ def edf_to_npz(eeg_file, labels_file, save_file=False, save_loc='Data\\Imported'
         - chans: EEG channels  with columns [loc_x, loc_y, loc_z, channel_name]
     
     The Temple University data is sampled at 400 Hz. The function returns data downsampled 
-    to 250 Hz, to match the sampling rat eof the BETA dataset. 
+    to 250 Hz, to match the sampling rate of the BETA dataset. 
 
     """
     # Check if eeg_file and labels_file have the name extension included
