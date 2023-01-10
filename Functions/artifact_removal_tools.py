@@ -150,8 +150,14 @@ def remove_eyeblinks_2D(eeg_raw, srate, data_reshape, window_length = 125, n_clu
     # - Multithread disabled
     else:
         for channel in range(n_channels):
-            [eeg_clean[channel,:], artifact_found[channel], saturation_found[channel]] = single_remove_eyeblinks(eeg_raw=eeg_raw[channel,:], 
-            idx_mat=idx_mat, svd_method=svd_method, antidiag_method=antidiag_method)
+            [eeg_clean[channel,:], artifact_found[channel], saturation_found[channel]] = single_remove_eyeblinks(
+                eeg_raw=eeg_raw[channel,:],
+                idx_mat=idx_mat,
+                n_clusters=n_clusters,
+                fd_threshold=fd_threshold,
+                ssa_threshold=ssa_threshold,
+                svd_method=svd_method,
+                antidiag_method=antidiag_method)
 
     #%% Return data in original shape
     if data_reshape:
