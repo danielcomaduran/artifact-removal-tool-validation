@@ -261,7 +261,7 @@ def zcr(data):
 
     return data_zcr
 
-def heatmap(data, chans: list[str], title: str = ""):
+def heatmap(data, chans: list[str], vals=[0,100], title: str = ""):
     """
         Heatmap visualization with mean across channels
 
@@ -271,6 +271,8 @@ def heatmap(data, chans: list[str], title: str = ""):
                 Data matrix to be plotted
             chans: list[str]
                 List of strings with channels to be plotted
+            vals: [int, int]
+                List with [min, max] values for heatmap
             title: str
                 Optional. title of the figure
 
@@ -297,7 +299,7 @@ def heatmap(data, chans: list[str], title: str = ""):
     cmap1 = sns.diverging_palette(230, 20, as_cmap=True)
 
     # Draw the heatmap
-    sns.heatmap(plot_df, cmap=cmap1, vmax=100, center=0, square=True, linewidths=.5, cbar_kws={"shrink": .5}, ax=ax)
+    sns.heatmap(plot_df, cmap=cmap1, vmin=vals[0], vmax=vals[1], center=0, square=True, linewidths=.5, cbar_kws={"shrink": .5}, ax=ax)
     ax.set_title(title)
     plt.tight_layout()
     plt.show()
